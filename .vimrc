@@ -1,5 +1,4 @@
 "" .vimrc for vim
-"" (mostly) Made by Julien Lauron
 
 " autoselect current buffer -- switch to buffer when trying to exit without saving
 set cb=autoselect
@@ -34,7 +33,6 @@ set showcmd
 set lazyredraw
 set viminfo='20,\"50
 set history=40
-set ruler
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set cpoptions=aABceFs
 set smartcase
@@ -104,9 +102,7 @@ Plugin 'tmhedberg/matchit'
 Plugin 'voithos/vim-python-matchit'
 Plugin 'tpope/vim-surround'
 Plugin 'mpage'
-Plugin 'bling/vim-airline'
 Plugin 'Vundle.vim'
-
 Plugin 'python.vim'
 Plugin 'nvie/vim-flake8'
 
@@ -153,20 +149,20 @@ let g:syntastic_check_on_wq = 1
 
 "tim
 " Airline
-set laststatus=0
-let g:airline_theme="my_airline"
-let g:airline_section_a = "a"
-let g:airline_section_b = "b"
-let g:airline_section_c = "c"
-let g:airline_section_x = "x"
-let g:airline_section_y = "y"
-let g:airline_section_z = "z"
-let g:airline_section_gutter = "g"
-let g:airline_section_warning = "w"
-let g:airline_left_sep = "l"
-let g:airline_left_alt_sep = "lz"
-let g:airline_right_sep = "r"
-let g:airline_right_alt_sep = "rz"
+" set laststatus=0
+" let g:airline_theme="my_airline"
+" let g:airline_section_a = "a"
+" let g:airline_section_b = "b"
+" let g:airline_section_c = "c"
+" let g:airline_section_x = "x"
+" let g:airline_section_y = "y"
+" let g:airline_section_z = "z"
+" let g:airline_section_gutter = "g"
+" let g:airline_section_warning = "w"
+" let g:airline_left_sep = "l"
+" let g:airline_left_alt_sep = "lz"
+" let g:airline_right_sep = "r"
+" let g:airline_right_alt_sep = "rz"
 
 syntax on
 set bs=2
@@ -188,9 +184,9 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd BufNewFile,BufRead *.html set filetype=htmldjango
 autocmd BufNewFile,BufRead *.html set syntax=htmldjango
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 " on save any: trim trailing whitespace^[[M $"
 autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
@@ -234,3 +230,8 @@ setlocal foldmethod=indent
 set foldnestmax=1
 set foldlevel=1
 
+set noruler
+set statusline=
+set statusline+=%100l
+hi StatusLine ctermbg=none cterm=bold
+set ls=2
